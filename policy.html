@@ -13,32 +13,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <span class="logo-icon">📱</span>
-                        <h1 class="logo-text">QRメモ帳</h1>
-                    </a>
-                </div>
-                <nav class="nav">
-                    <a href="index.html#features" class="nav-link">機能</a>
-                    <a href="index.html#how-to-use" class="nav-link">使い方</a>
-                    <a href="index.html#download" class="nav-link">ダウンロード</a>
-                    <a href="privacy.html" class="nav-link active">プライバシー</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
     <!-- Main Content -->
     <main class="legal-content">
         <div class="container">
             <div class="legal-header">
                 <h1 class="legal-title">プライバシーポリシー</h1>
-                <p class="legal-date">最終更新日: 2025年1月15日</p>
+                <p class="legal-date">最終更新日: 2025年10月15日</p>
             </div>
 
             <div class="legal-body">
@@ -50,16 +30,18 @@
                 <section class="legal-section">
                     <h2>2. 収集する情報</h2>
 
-                    <h3>2.1 収集しない情報</h3>
-                    <p>本アプリは以下の情報を<strong>収集しません</strong>：</p>
+                    <h3>2.1 外部サーバーへの送信</h3>
+                    <p>本アプリは、以下の情報を開発者のサーバーやその他の外部サーバーに<strong>送信・収集しません</strong>：</p>
                     <ul>
                         <li>個人を特定できる情報（氏名、住所、電話番号、メールアドレス等）</li>
                         <li>位置情報</li>
                         <li>連絡先情報</li>
+                        <li>端末識別情報（IDFA、広告ID等）</li>
                         <li>使用統計データ</li>
                         <li>クラッシュレポート</li>
                         <li>その他の個人情報</li>
                     </ul>
+                    <p class="note"><strong>重要:</strong> 本アプリは完全オフラインで動作し、ネットワーク通信を一切行わないため、開発者がユーザーのデータにアクセスすることは技術的に不可能です。</p>
 
                     <h3>2.2 ローカルに保存される情報</h3>
                     <p>以下の情報は<strong>ユーザーの端末内にのみ</strong>保存されます：</p>
@@ -68,7 +50,7 @@
                         <li>QRコード送信履歴</li>
                         <li>アプリの設定情報（言語設定など）</li>
                     </ul>
-                    <p class="note">これらのデータは全て端末内のローカルストレージ（AsyncStorage）に保存され、外部に送信されることは一切ありません。</p>
+                    <p class="note">これらのデータは全て端末内に保存され、外部に送信されることは一切ありません。</p>
                 </section>
 
                 <section class="legal-section">
@@ -88,10 +70,12 @@
 
                     <h3>4.1 カメラ権限</h3>
                     <ul>
-                        <li>カメラは、ユーザーが明示的にスキャン機能を起動した場合のみ使用されます</li>
-                        <li>撮影された画像や動画は保存されません</li>
-                        <li>スキャンされたQRコードの内容のみが処理されます</li>
-                        <li>カメラのデータは外部に送信されません</li>
+                        <li><strong>使用目的:</strong> QRコードのスキャン機能提供のみ</li>
+                        <li><strong>起動タイミング:</strong> ユーザーが明示的にスキャン機能を起動した場合のみ</li>
+                        <li><strong>データ保存:</strong> 撮影された画像や動画は一切保存されません</li>
+                        <li><strong>処理内容:</strong> QRコードの検出・デコードのみが行われ、その他の画像分析は行われません</li>
+                        <li><strong>データ送信:</strong> カメラデータは外部に送信されません</li>
+                        <li><strong>権限の取り消し:</strong> iOSの設定からいつでもカメラ権限を取り消すことができます（ただし、スキャン機能は使用できなくなります）</li>
                     </ul>
                 </section>
 
@@ -110,11 +94,13 @@
                     <h2>6. データのセキュリティ</h2>
                     <p>本アプリは、以下のセキュリティ対策を実施しています：</p>
                     <ul>
-                        <li><strong>完全オフライン動作</strong>: ネットワーク通信を一切行わないため、データ漏洩のリスクがありません</li>
-                        <li><strong>ローカル保存のみ</strong>: データは端末内のサンドボックス環境に保存されます</li>
-                        <li><strong>暗号化不要</strong>: データが外部に送信されないため、通信の暗号化は必要ありません</li>
-                        <li><strong>端末のセキュリティ依存</strong>: データの安全性は、端末のロック機能やOSのセキュリティに依存します</li>
+                        <li><strong>完全オフライン動作:</strong> ネットワーク通信を一切行わないため、通信経路でのデータ漏洩リスクがありません</li>
+                        <li><strong>サンドボックス保護:</strong> iOSのサンドボックス機構により、他のアプリからのアクセスは遮断されています</li>
+                        <li><strong>ローカルストレージ保護:</strong> データはiOSのApp Sandbox内に保存され、OSレベルで保護されます</li>
+                        <li><strong>端末レベルのセキュリティ:</strong> データの安全性は、端末のパスコード/Face ID/Touch ID、および端末の暗号化機能に依存します</li>
+                        <li><strong>通信暗号化:</strong> ネットワーク通信を行わないため、SSL/TLS等の通信暗号化は不要です</li>
                     </ul>
+                    <p class="note"><strong>ユーザーの責任:</strong> 端末のロック機能を必ず有効にし、紛失・盗難時には速やかに「iPhoneを探す」等で遠隔消去を行ってください。</p>
                 </section>
 
                 <section class="legal-section">
@@ -129,7 +115,18 @@
 
                 <section class="legal-section">
                     <h2>8. 子供のプライバシー</h2>
-                    <p>本アプリは、13歳未満の子供から意図的に個人情報を収集することはありません。本アプリは個人情報を一切収集しないため、年齢に関わらず安全に使用できます。</p>
+                    <p>本アプリは、13歳未満の子供を含む全ての年齢層のユーザーが安全に使用できるよう設計されています。</p>
+
+                    <h3>8.1 COPPAへの準拠</h3>
+                    <p>米国児童オンラインプライバシー保護法（COPPA）は、13歳未満の子供から個人情報を収集する際に保護者の同意を義務付けていますが、本アプリは以下の理由によりCOPPAの適用対象外です：</p>
+                    <ul>
+                        <li>個人情報を一切収集しません</li>
+                        <li>外部サーバーとの通信を行いません</li>
+                        <li>ユーザー登録やアカウント作成が不要です</li>
+                    </ul>
+
+                    <h3>8.2 保護者の方へ</h3>
+                    <p>本アプリは年齢確認を行いませんが、完全オフライン動作のため、お子様が安全に使用できる設計となっています。ただし、お子様が不適切な内容をQRコード化しないよう、保護者の方の監督をお願いいたします。</p>
                 </section>
 
                 <section class="legal-section">
@@ -156,11 +153,25 @@
                 </section>
 
                 <section class="legal-section">
-                    <h2>12. お問い合わせ</h2>
-                    <p>本プライバシーポリシーに関するご質問やご不明な点がございましたら、以下の方法でお問い合わせください：</p>
+                    <h2>12. 国際的なプライバシー規制への対応</h2>
+
+                    <h3>12.1 GDPR（EU一般データ保護規則）</h3>
+                    <p>本アプリは、EUのGDPRに準拠しています。ただし、本アプリは個人データを一切収集・処理しないため、GDPRの適用対象外となります。</p>
                     <ul>
-                        <li>GitHub Issues: <a href="https://github.com/sikakou/qr-memo/issues" target="_blank">https://github.com/sikakou/qr-memo/issues</a></li>
-                        <li>ウェブサイト: <a href="https://qrmemo.app" target="_blank">https://qrmemo.app</a></li>
+                        <li>データ管理者: 該当なし（個人データを処理しないため）</li>
+                        <li>データ処理者: 該当なし</li>
+                        <li>法的根拠: 不要（個人データの処理を行わないため）</li>
+                    </ul>
+
+                    <h3>12.2 カリフォルニア州消費者プライバシー法（CCPA）</h3>
+                    <p>本アプリは、CCPAの適用対象となる個人情報の販売を行いません。</p>
+                </section>
+
+                <section class="legal-section">
+                    <h2>13. お問い合わせ</h2>
+                    <p>本プライバシーポリシーに関するご質問やご不明な点がございましたら、以下のメールアドレスまでお問い合わせください：</p>
+                    <ul>
+                        <li>メール: <a href="mailto:qrmemo.developer@gmail.com">qrmemo.developer@gmail.com</a></li>
                     </ul>
                 </section>
 
@@ -179,9 +190,8 @@
             </div>
 
             <div class="legal-footer">
-                <p>このプライバシーポリシーは、2025年1月15日より有効です。</p>
+                <p>このプライバシーポリシーは、2025年10月15日より有効です。</p>
                 <div class="legal-links">
-                    <a href="index.html">ホームに戻る</a>
                     <a href="terms.html">利用規約</a>
                 </div>
             </div>
